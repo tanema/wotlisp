@@ -37,35 +37,18 @@ else:
     sep = "\r\n"
 rundir = None
 
-parser = argparse.ArgumentParser(
-        description="Run a test file against a Mal implementation")
-parser.add_argument('--rundir',
-        help="change to the directory before running tests")
-parser.add_argument('--start-timeout', default=10, type=int,
-        help="default timeout for initial prompt")
-parser.add_argument('--test-timeout', default=20, type=int,
-        help="default timeout for each individual test action")
-parser.add_argument('--pre-eval', default=None, type=str,
-        help="Mal code to evaluate prior to running the test")
-parser.add_argument('--no-pty', action='store_true',
-        help="Use direct pipes instead of pseudo-tty")
-parser.add_argument('--log-file', type=str,
-        help="Write messages to the named file in addition the screen")
-parser.add_argument('--debug-file', type=str,
-        help="Write all test interaction the named file")
-parser.add_argument('--hard', action='store_true',
-        help="Turn soft tests following a ';>>> soft=True' into hard failures")
+parser = argparse.ArgumentParser(description="Run a test file against a Mal implementation")
+parser.add_argument('--rundir', help="change to the directory before running tests")
+parser.add_argument('--start-timeout', default=10, type=int, help="default timeout for initial prompt")
+parser.add_argument('--test-timeout', default=20, type=int, help="default timeout for each individual test action")
+parser.add_argument('--pre-eval', default=None, type=str, help="Mal code to evaluate prior to running the test")
+parser.add_argument('--no-pty', action='store_true', help="Use direct pipes instead of pseudo-tty")
+parser.add_argument('--log-file', type=str, help="Write messages to the named file in addition the screen")
+parser.add_argument('--debug-file', type=str, help="Write all test interaction the named file")
+parser.add_argument('--hard', action='store_true', help="Turn soft tests following a ';>>> soft=True' into hard failures")
 
 # Control whether deferrable and optional tests are executed
-parser.add_argument('--deferrable', dest='deferrable', action='store_true',
-        help="Enable deferrable tests that follow a ';>>> deferrable=True'")
-parser.add_argument('--no-deferrable', dest='deferrable', action='store_false',
-        help="Disable deferrable tests that follow a ';>>> deferrable=True'")
 parser.set_defaults(deferrable=True)
-parser.add_argument('--optional', dest='optional', action='store_true',
-        help="Enable optional tests that follow a ';>>> optional=True'")
-parser.add_argument('--no-optional', dest='optional', action='store_false',
-        help="Disable optional tests that follow a ';>>> optional=True'")
 parser.set_defaults(optional=True)
 
 parser.add_argument('test_file', type=str,
@@ -345,12 +328,10 @@ if len(failures) > 0:
 
 results = """
 TEST RESULTS (for %s):
-  %3d: soft failing tests
   %3d: failing tests
   %3d: passing tests
   %3d: total tests
-""" % (args.test_file, soft_fail_cnt, fail_cnt,
-        pass_cnt, test_cnt)
+""" % (args.test_file, fail_cnt, pass_cnt, test_cnt)
 log(results)
 
 debug("\n") # add some separate to debug log
