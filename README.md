@@ -15,3 +15,15 @@ To run the examples you can run
 - `make`
 - `cd examples`
 - `../build/wot ./examplename.mal`
+
+## Perf output to compare with other implementations
+
+```
+> make perf
+Running: ./build/wot ./test/perf1.mal
+"Elapsed time: 0 msecs"
+Running: ./build/wot ./test/perf2.mal
+"Elapsed time: 1 msecs"
+Running: ./build/wot ./test/perf3.mal
+iters over 10 seconds: 30129
+```
