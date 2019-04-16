@@ -7,6 +7,9 @@ rep: all
 test: all
 	@./test/runtest.py ./test/final.mal -- ./build/wot
 
+host: all
+	@./build/wot ./test/mal/runtime.mal
+
 perf: all
 	@echo 'Running: ./build/wot ./tests/perf1.mal'
 	@./build/wot ./tests/perf1.mal
