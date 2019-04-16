@@ -5,7 +5,7 @@ rep: all
 	@./build/wot
 
 test: all
-	@./tests/runtest.py --deferrable --optional ./tests/final.mal -- ./build/wot
+	@./test/runtest.py --deferrable --optional ./test/final.mal -- ./build/wot
 
 perf: all
 	@echo 'Running: ./build/wot ./tests/perf1.mal'
