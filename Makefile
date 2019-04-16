@@ -11,12 +11,12 @@ host: all
 	@./build/wot ./test/mal/runtime.mal
 
 perf: all
-	@echo 'Running: ./build/wot ./tests/perf1.mal'
-	@./build/wot ./tests/perf1.mal
-	@echo 'Running: ./build/wot ./tests/perf2.mal'
-	@./build/wot ./tests/perf2.mal
-	@echo 'Running: ./build/wot ./tests/perf3.mal'
-	@./build/wot ./tests/perf3.mal
+	@echo 'Running: ./build/wot ./test/perf1.mal'
+	@./build/wot ./test/perf1.mal
+	@echo 'Running: ./build/wot ./test/perf2.mal'
+	@./build/wot ./test/perf2.mal
+	@echo 'Running: ./build/wot ./test/perf3.mal'
+	@./build/wot ./test/perf3.mal
 
 clean:
 	@rm -rf ./wotlisp/build
